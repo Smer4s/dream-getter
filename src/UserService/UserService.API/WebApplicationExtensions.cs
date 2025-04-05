@@ -1,6 +1,6 @@
 ﻿using DreamGetter.Shared.Abstractions.Seeds;
 using DreamGetter.Shared.Utils;
-using UserService.API.Endpoints.User;
+using UserService.API.Endpoints._User_;
 using UserService.Infrastructure.Database;
 
 namespace UserService.API;

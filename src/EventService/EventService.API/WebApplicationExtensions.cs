@@ -1,9 +1,8 @@
 ﻿using DreamGetter.Shared.Abstractions.Seeds;
 using DreamGetter.Shared.Utils;
-using EventService.API.Endpoints;
+using EventService.API.Endpoints._Meeting_;
+using EventService.API.Endpoints._MeetingType_;
 using EventService.Infrastructure.Database;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace EventService.API;
 
@@ -12,6 +11,7 @@ internal static class WebApplicationExtensions
     public static void AddEndpoints(this WebApplication app)
     {
         app.AddMeetingEndpoints();
+        app.AddMeetingTypeEndpoints();
     }
 
     public static async Task ApplyMigrations(this WebApplication app)

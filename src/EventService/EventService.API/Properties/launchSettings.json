@@ -27,7 +27,7 @@
       "applicationUrl": "https://localhost:7121;http://localhost:5012",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "CONNECTION_STRING": "Data Source=Application.db"
+        "CONNECTION_STRING": "Data Source=Events.db"
       }
     },
     "IIS Express": {

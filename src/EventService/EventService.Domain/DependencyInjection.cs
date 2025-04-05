@@ -1,7 +1,6 @@
 ﻿using EventService.Domain.Abstractions.Services;
 using EventService.Domain.Services;
 using Microsoft.Extensions.DependencyInjection;
-using System.ComponentModel.Design;
 
 namespace EventService.Domain;
 

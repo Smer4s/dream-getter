@@ -1,7 +1,9 @@
-﻿using EventService.API.Endpoints;
+﻿using DreamGetter.Shared.Abstractions.Seeds;
+using DreamGetter.Shared.Utils;
+using EventService.API.Endpoints;
 using EventService.Infrastructure.Database;
-using EventService.Infrastructure.Database.Seeds.Abstractions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EventService.API;
 
@@ -17,27 +19,9 @@ internal static class WebApplicationExtensions
         using var scope = app.Services.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-        using var transaction = await dbContext.Database.BeginTransactionAsync();
-        try
-        {
-            await dbContext.Database.MigrateAsync();
-            await transaction.CommitAsync();
-        }
-        catch (Exception)
-        {
-            await transaction.RollbackAsync();
-        }
+        await DatabaseMigrator.MigrateAsync(dbContext);
 
-        await ApplySeeds(scope.ServiceProvider);
-    }
-
-    private static async Task ApplySeeds(IServiceProvider serviceProvider)
-    {
-        var seeders = serviceProvider.GetServices<ISeeder>();
-
-        foreach (var seeder in seeders)
-        {
-            await seeder.SeedAsync();
-        }
+        var seeders = scope.ServiceProvider.GetServices<ISeeder>();
+        await DatabaseMigrator.ApplySeeds(seeders);
     }
 }

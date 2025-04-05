@@ -1,14 +1,15 @@
 ﻿using Bogus;
-using EventService.Domain.Entities.Abstractions;
+using DreamGetter.Shared.Abstractions.Entities;
+using Microsoft.EntityFrameworkCore;
 
-namespace EventService.Infrastructure.Database.Seeds.Abstractions;
+namespace DreamGetter.Shared.Abstractions.Seeds;
 
-internal abstract class Seeder<T>(AppDbContext dbContext)
+public abstract class Seeder<T>(DbContext dbContext)
     : ISeeder<T>
     where T : Entity
 {
     protected virtual int MaxEntitiesCount { get; } = 15;
-    protected readonly AppDbContext _dbContext = dbContext;
+    protected readonly DbContext _dbContext = dbContext;
 
     public abstract Task SeedAsync();
 

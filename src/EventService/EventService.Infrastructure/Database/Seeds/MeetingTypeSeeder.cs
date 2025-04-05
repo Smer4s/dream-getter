@@ -1,6 +1,6 @@
 ﻿using Bogus;
+using DreamGetter.Shared.Abstractions.Seeds;
 using EventService.Domain.Entities;
-using EventService.Infrastructure.Database.Seeds.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
 namespace EventService.Infrastructure.Database.Seeds;
@@ -9,7 +9,7 @@ internal class MeetingTypeSeeder(AppDbContext dbContext) : Seeder<MeetingType>(d
 {
     public override async Task SeedAsync()
     {
-        var meetingTypes = await _dbContext.MeetingTypes.ToListAsync();
+        var meetingTypes = await dbContext.MeetingTypes.ToListAsync();
         if (meetingTypes.Count >= MaxEntitiesCount)
         {
             return;

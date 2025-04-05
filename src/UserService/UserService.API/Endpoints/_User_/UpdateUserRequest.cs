@@ -1,7 +1,6 @@
-﻿
-using UserService.Domain.Abstractions.Services;
+﻿using UserService.Domain.Abstractions.Services;
 
-namespace UserService.API.Endpoints.User;
+namespace UserService.API.Endpoints._User_;
 
 internal record UpdateUserModel
 {

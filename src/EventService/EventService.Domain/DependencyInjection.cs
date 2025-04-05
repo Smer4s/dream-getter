@@ -17,6 +17,7 @@ public static class DependencyInjection
     private static IServiceCollection AddDomainServices(this IServiceCollection services)
     {
         services.AddScoped<IMeetingService, MeetingService>();
+        services.AddScoped<IMeetingTypeService, MeetingTypeService>();  
 
         return services;
     }

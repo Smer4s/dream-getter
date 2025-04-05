@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\DreamGetter.Shared\DreamGetter.Shared.csproj" />
+    <ProjectReference Include="..\..\DreamGetter.Shared\DreamGetter.Shared.csproj" />
     <ProjectReference Include="..\UserService.Infrastructure\UserService.Infrastructure.csproj" />
   </ItemGroup>
 

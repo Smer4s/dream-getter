@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Domain", "src\U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Infrastructure", "src\UserService\UserService.Infrastructure\UserService.Infrastructure.csproj", "{FC4134C1-632D-4791-9E12-78E0DA725848}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamGetter.Shared", "DreamGetter.Shared\DreamGetter.Shared.csproj", "{AE1869C7-28B2-412F-A6EC-1DF8667DBEC9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamGetter.Shared", "src\DreamGetter.Shared\DreamGetter.Shared.csproj", "{AE1869C7-28B2-412F-A6EC-1DF8667DBEC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

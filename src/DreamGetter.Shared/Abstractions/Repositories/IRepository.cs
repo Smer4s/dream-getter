@@ -1,11 +1,11 @@
-﻿using EventService.Domain.Entities.Abstractions;
+﻿using DreamGetter.Shared.Abstractions.Entities;
 
-namespace EventService.Domain.Abstractions.Repositories;
+namespace DreamGetter.Shared.Abstractions.Repositories;
 
 public interface IRepository<T> where T : Entity
 {
     Task<List<T>> GetAll();
-    T? GetById(Guid entityId);
+    Task<T?> GetById(Guid entityId);
     void Create(T entity);
     void Update(T entity);
     void Delete(T entity);

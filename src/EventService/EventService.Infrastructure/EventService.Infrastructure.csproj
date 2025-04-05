@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\DreamGetter.Shared\DreamGetter.Shared.csproj" />
     <ProjectReference Include="..\EventService.Domain\EventService.Domain.csproj" />
   </ItemGroup>
 

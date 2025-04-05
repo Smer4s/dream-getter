@@ -1,9 +1,9 @@
-﻿using EventService.Domain.Abstractions.Repositories;
-using EventService.Domain.Entities;
-using EventService.Domain.Shared;
+﻿using DreamGetter.Shared.Abstractions.Repositories;
+using DreamGetter.Shared.Abstractions.Seeds;
+using DreamGetter.Shared.Utils;
+using EventService.Domain.Abstractions.Repositories;
 using EventService.Infrastructure.Database;
 using EventService.Infrastructure.Database.Seeds;
-using EventService.Infrastructure.Database.Seeds.Abstractions;
 using EventService.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -40,7 +40,7 @@ public static class DependencyInjection
 
     private static IServiceCollection AddDatabase(this IServiceCollection services)
     {
-        services.AddDbContext<AppDbContext>(builder => builder
+        services.AddDbContext<IUnitOfWork, AppDbContext>(builder => builder
             .UseSqlite(EnvFetcher.GetEnvVariable("CONNECTION_STRING")));
 
         return services;

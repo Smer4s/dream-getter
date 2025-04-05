@@ -1,4 +1,3 @@
-using EventService.API.Endpoints;
 using EventService.Domain;
 using EventService.Infrastructure;
 

@@ -1,4 +1,5 @@
-﻿using EventService.Domain.Entities;
+﻿using DreamGetter.Shared.Abstractions.Repositories;
+using EventService.Domain.Entities;
 
 namespace EventService.Domain.Abstractions.Repositories;
 

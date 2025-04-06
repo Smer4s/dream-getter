@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+service UserServiceGrpc {
+    rpc GetUserWithSubscribers (UserRequest) returns (UserGrpcDto);
+}
+
+message UserRequest {
+    string userId = 1;
+}
+
+message UserSlimGrpcDto {
+    string id = 1;
+    string name = 2;
+    string phoneNumber = 3;
+    string email = 4;
+}
+
+message UserGrpcDto {
+    string id = 1;
+    string name = 2;
+    string phoneNumber = 3;
+    string email = 4;
+    repeated UserSlimGrpcDto subscribers = 5;
+    repeated UserSlimGrpcDto subscribedOn = 6;
+}

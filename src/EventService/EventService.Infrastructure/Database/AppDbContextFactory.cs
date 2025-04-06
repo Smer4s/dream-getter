@@ -2,10 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using DreamGetter.Shared.Utils;
 
-namespace UserService.Infrastructure.Database
+namespace EventService.Infrastructure.Database
 {
     internal class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
-    {
+    { 
         public AppDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();

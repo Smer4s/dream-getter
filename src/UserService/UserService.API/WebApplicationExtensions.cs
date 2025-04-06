@@ -2,6 +2,8 @@
 using DreamGetter.Shared.Utils;
 using UserService.API.Endpoints._Auth_;
 using UserService.API.Endpoints._User_;
+using UserService.Domain.Services;
+using UserService.Domain.Services.Grpc;
 using UserService.Infrastructure.Database;
 
 namespace UserService.API;
@@ -14,6 +16,11 @@ internal static class WebApplicationExtensions
         app.AddAuthEndpoints();
     }
     
+    public static void AddGrpcServices(this WebApplication app)
+    {
+        app.MapGrpcService<UserGrpcService>();
+    }
+
     public static void AddAuth(this WebApplication app)
     {
         app.UseAuthentication();

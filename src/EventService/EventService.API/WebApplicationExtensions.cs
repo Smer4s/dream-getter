@@ -2,6 +2,7 @@
 using DreamGetter.Shared.Utils;
 using EventService.API.Endpoints._Meeting_;
 using EventService.API.Endpoints._MeetingType_;
+using EventService.Domain.Abstractions.Services;
 using EventService.Infrastructure.Database;
 
 namespace EventService.API;

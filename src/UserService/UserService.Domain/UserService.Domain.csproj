@@ -1,24 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.3" />
-    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.7.0" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.7.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Injections\**" />
+		<EmbeddedResource Remove="Injections\**" />
+		<None Remove="Injections\**" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\DreamGetter.Shared\DreamGetter.Shared.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Grpc.AspNetCore" Version="2.70.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.1" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.3" />
+		<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.7.0" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.7.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Injections\" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\DreamGetter.Shared\DreamGetter.Shared.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProtoBuf Include="Protos\UserServiceGrpc.proto" GrpcServices="Server" />
+	</ItemGroup>
 
 </Project>

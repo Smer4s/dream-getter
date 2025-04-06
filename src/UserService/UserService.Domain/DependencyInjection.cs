@@ -13,6 +13,7 @@ public static class DependencyInjection
     public static IServiceCollection AddDomain(this IServiceCollection services)
     {
         services.AddAuth();
+        services.AddGrpc();
 
         services.AddScoped<IUserService, Services._User_.UserService>();
         services.AddScoped<ISubscriptionService, SubscriptionService>();

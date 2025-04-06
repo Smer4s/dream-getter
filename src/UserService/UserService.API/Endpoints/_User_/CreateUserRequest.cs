@@ -1,4 +1,5 @@
 ﻿using UserService.Domain.Abstractions.Services;
+using UserService.Domain.Entities;
 
 namespace UserService.API.Endpoints._User_;
 
@@ -12,9 +13,9 @@ public record CreateUserModel
 public class CreateUserRequest
 {
 
-    public static async Task<Domain.Entities.User> Request(CreateUserModel model, IUserService userService)
+    public static async Task<User> Request(CreateUserModel model, IUserService userService)
     {
-        var user = new Domain.Entities.User()
+        var user = new User()
         {
             Name = model.Name,
             Email = model.Email,

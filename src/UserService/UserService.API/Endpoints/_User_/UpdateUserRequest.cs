@@ -1,4 +1,5 @@
 ﻿using UserService.Domain.Abstractions.Services;
+using UserService.Domain.Entities;
 
 namespace UserService.API.Endpoints._User_;
 
@@ -15,7 +16,7 @@ internal class UpdateUserRequest
 {
     internal static async Task Request(UpdateUserModel model, IUserService userService)
     {
-        var user = new Domain.Entities.User()
+        var user = new User()
         {
             Email = model.Email,
             Id = model.UserId,

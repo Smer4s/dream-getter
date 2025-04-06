@@ -41,7 +41,7 @@ public static class DependencyInjection
     private static IServiceCollection AddDatabase(this IServiceCollection services)
     {
         services.AddDbContext<IUnitOfWork, AppDbContext>(builder => builder
-            .UseSqlite(EnvFetcher.GetEnvVariable("CONNECTION_STRING")));
+            .UseSqlite(EnvFetcher.GetRequiredEnvVariable("CONNECTION_STRING")));
 
         return services;
     }

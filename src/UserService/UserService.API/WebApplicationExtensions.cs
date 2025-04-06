@@ -1,5 +1,6 @@
 ﻿using DreamGetter.Shared.Abstractions.Seeds;
 using DreamGetter.Shared.Utils;
+using UserService.API.Endpoints._Auth_;
 using UserService.API.Endpoints._User_;
 using UserService.Infrastructure.Database;
 
@@ -10,6 +11,13 @@ internal static class WebApplicationExtensions
     public static void AddEndpoints(this WebApplication app)
     {
         app.AddUserEndpoints();
+        app.AddAuthEndpoints();
+    }
+    
+    public static void AddAuth(this WebApplication app)
+    {
+        app.UseAuthentication();
+        app.UseAuthorization();
     }
 
     public static async Task ApplyMigrations(this WebApplication app)

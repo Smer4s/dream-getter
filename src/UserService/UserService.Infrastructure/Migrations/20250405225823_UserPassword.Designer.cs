@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UserService.Infrastructure.Database;
 
@@ -10,9 +11,11 @@ using UserService.Infrastructure.Database;
 namespace UserService.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250405225823_UserPassword")]
+    partial class UserPassword
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.3");
@@ -24,9 +27,6 @@ namespace UserService.Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("JwtRefresh")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")

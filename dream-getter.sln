@@ -11,11 +11,34 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventService.Infrastructure
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService.API", "src\UserService\UserService.API\UserService.API.csproj", "{83D9B3A9-AB9B-4D83-88D1-303654281C21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Domain", "src\UserService\UserService.Domain\UserService.Domain.csproj", "{47A01098-956D-4C03-B2BB-E7CFA6AA7468}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService.Domain", "src\UserService\UserService.Domain\UserService.Domain.csproj", "{47A01098-956D-4C03-B2BB-E7CFA6AA7468}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Infrastructure", "src\UserService\UserService.Infrastructure\UserService.Infrastructure.csproj", "{FC4134C1-632D-4791-9E12-78E0DA725848}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService.Infrastructure", "src\UserService\UserService.Infrastructure\UserService.Infrastructure.csproj", "{FC4134C1-632D-4791-9E12-78E0DA725848}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamGetter.Shared", "src\DreamGetter.Shared\DreamGetter.Shared.csproj", "{AE1869C7-28B2-412F-A6EC-1DF8667DBEC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamGetter.Shared", "src\DreamGetter.Shared\DreamGetter.Shared.csproj", "{AE1869C7-28B2-412F-A6EC-1DF8667DBEC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService.Domain", "src\NotificationService\NotificationService.Domain\NotificationService.Domain.csproj", "{A0C3192E-F503-4D3C-BD0B-24B2CCF4603C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService.Infrastructure", "src\NotificationService\NotificationService.Infrastructure\NotificationService.Infrastructure.csproj", "{F5D2685F-1B77-4A51-8006-A86FAD76C3B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService.API", "src\NotificationService\NotificationService.API\NotificationService.API.csproj", "{5BB380AD-A036-47C8-97FC-9D365E7B0D43}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventService", "EventService", "{A900E015-9765-4789-8CC4-EFC0F464B28C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserService", "UserService", "{724C75CC-9691-4BFC-9692-0EA85368B830}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotificationService", "NotificationService", "{F54EB27F-F9BD-42C8-AA99-816EC69E74E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{C4E2B2EA-2123-4A8B-B378-77B8E7E0D487}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{5CF373D6-F0CD-4D29-B8DC-D8875085F9A1}"
+	ProjectSection(SolutionItems) = preProject
+		deploy\docker-compose.yml = deploy\docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleClient", "SampleClient", "{EA0A95D3-CFAC-4D6D-AAAE-727E5EB0CCAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleClient", "src\SampleClient\SampleClient\SampleClient.csproj", "{F5D9D772-40F9-4F86-874E-735C20D53BC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,9 +74,38 @@ Global
 		{AE1869C7-28B2-412F-A6EC-1DF8667DBEC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE1869C7-28B2-412F-A6EC-1DF8667DBEC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE1869C7-28B2-412F-A6EC-1DF8667DBEC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0C3192E-F503-4D3C-BD0B-24B2CCF4603C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0C3192E-F503-4D3C-BD0B-24B2CCF4603C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0C3192E-F503-4D3C-BD0B-24B2CCF4603C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0C3192E-F503-4D3C-BD0B-24B2CCF4603C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5D2685F-1B77-4A51-8006-A86FAD76C3B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5D2685F-1B77-4A51-8006-A86FAD76C3B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5D2685F-1B77-4A51-8006-A86FAD76C3B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5D2685F-1B77-4A51-8006-A86FAD76C3B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BB380AD-A036-47C8-97FC-9D365E7B0D43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BB380AD-A036-47C8-97FC-9D365E7B0D43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BB380AD-A036-47C8-97FC-9D365E7B0D43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BB380AD-A036-47C8-97FC-9D365E7B0D43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5D9D772-40F9-4F86-874E-735C20D53BC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5D9D772-40F9-4F86-874E-735C20D53BC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5D9D772-40F9-4F86-874E-735C20D53BC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5D9D772-40F9-4F86-874E-735C20D53BC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2526C0DE-07BD-4FAE-A30B-BDD8AD220E99} = {A900E015-9765-4789-8CC4-EFC0F464B28C}
+		{940D20A7-82B2-47D1-9AEB-A0A9122ACEA7} = {A900E015-9765-4789-8CC4-EFC0F464B28C}
+		{919792CF-E167-4CE6-869A-00F92D33AA7F} = {A900E015-9765-4789-8CC4-EFC0F464B28C}
+		{83D9B3A9-AB9B-4D83-88D1-303654281C21} = {724C75CC-9691-4BFC-9692-0EA85368B830}
+		{47A01098-956D-4C03-B2BB-E7CFA6AA7468} = {724C75CC-9691-4BFC-9692-0EA85368B830}
+		{FC4134C1-632D-4791-9E12-78E0DA725848} = {724C75CC-9691-4BFC-9692-0EA85368B830}
+		{AE1869C7-28B2-412F-A6EC-1DF8667DBEC9} = {C4E2B2EA-2123-4A8B-B378-77B8E7E0D487}
+		{A0C3192E-F503-4D3C-BD0B-24B2CCF4603C} = {F54EB27F-F9BD-42C8-AA99-816EC69E74E9}
+		{F5D2685F-1B77-4A51-8006-A86FAD76C3B9} = {F54EB27F-F9BD-42C8-AA99-816EC69E74E9}
+		{5BB380AD-A036-47C8-97FC-9D365E7B0D43} = {F54EB27F-F9BD-42C8-AA99-816EC69E74E9}
+		{F5D9D772-40F9-4F86-874E-735C20D53BC2} = {EA0A95D3-CFAC-4D6D-AAAE-727E5EB0CCAF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BC448235-37FA-4878-B7D2-12A5A301245F}

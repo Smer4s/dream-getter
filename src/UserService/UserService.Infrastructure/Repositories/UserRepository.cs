@@ -9,7 +9,7 @@ namespace UserService.Infrastructure.Repositories;
 
 internal class UserRepository(AppDbContext dbContext) : RepositoryBase<User>(dbContext), IUserRepository
 {
-    protected override Expression<Func<User, object?>>[] IncludeExpressions => [x=>x.SubscribedOn, x=>x.Subscribers];
+    protected override Expression<Func<User, object?>>[] IncludeExpressions => [x => x.SubscribedOn, x => x.Subscribers];
 
     public Task<User?> GetUserByPhoneAndPassword(string phone, string password)
         => dbContext.Users

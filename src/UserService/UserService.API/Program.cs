@@ -26,6 +26,7 @@ public class Program
 
         app.UseHttpsRedirection();
 
+        app.AddGrpcServices();
         app.AddAuth();
         app.AddEndpoints();
         await app.ApplyMigrations();

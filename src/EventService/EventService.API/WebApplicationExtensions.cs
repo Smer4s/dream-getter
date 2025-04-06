@@ -13,7 +13,11 @@ internal static class WebApplicationExtensions
         app.AddMeetingEndpoints();
         app.AddMeetingTypeEndpoints();
     }
-
+    public static void AddAuth(this WebApplication app)
+    {
+        app.UseAuthentication();
+        app.UseAuthorization();
+    }
     public static async Task ApplyMigrations(this WebApplication app)
     {
         using var scope = app.Services.CreateScope();

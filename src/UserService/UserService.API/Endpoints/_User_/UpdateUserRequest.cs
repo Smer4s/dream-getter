@@ -1,4 +1,6 @@
-﻿using UserService.Domain.Abstractions.Services;
+﻿using DreamGetter.Shared.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using UserService.Domain.Abstractions.Services;
 using UserService.Domain.Entities;
 
 namespace UserService.API.Endpoints._User_;
@@ -14,6 +16,7 @@ internal record UpdateUserModel
 
 internal class UpdateUserRequest
 {
+    [Authorize(Policy = AuthPolicyConstants.AdminPolicyName)]
     internal static async Task Request(UpdateUserModel model, IUserService userService)
     {
         var user = new User()

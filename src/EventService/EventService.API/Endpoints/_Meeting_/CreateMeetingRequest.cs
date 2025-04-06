@@ -1,5 +1,4 @@
-﻿
-using DreamGetter.Shared.Authentication;
+﻿using DreamGetter.Shared.Authentication;
 using EventService.Domain.Abstractions.Services;
 using EventService.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;

@@ -23,7 +23,7 @@ public class Program
         }
 
         app.UseHttpsRedirection();
-
+        app.AddAuth();
         await app.ApplyMigrations();
         app.AddEndpoints();
 

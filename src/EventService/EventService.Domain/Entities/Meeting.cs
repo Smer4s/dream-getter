@@ -8,4 +8,5 @@ public class Meeting : Entity
     public string Description { get; set; } = null!;
     public DateTime DateTime { get; set; }
     public MeetingType Type { get; set; } = null!;
+    public Guid IssuerId { get; set; }
 }

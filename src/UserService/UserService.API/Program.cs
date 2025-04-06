@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.OpenApi.Models;
 using UserService.Domain;
 using UserService.Infrastructure;
 
@@ -9,13 +11,10 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddInfrastructure()
-            .AddDomain();
-
-        builder.Services.AddAuthorization();
-
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
+        builder.Services
+            .AddInfrastructure()
+            .AddDomain()
+            .AddWebApi();
 
         var app = builder.Build();
 
@@ -27,8 +26,8 @@ public class Program
 
         app.UseHttpsRedirection();
 
-        app.UseAuthorization();
-
+        app.AddGrpcServices();
+        app.AddAuth();
         app.AddEndpoints();
         await app.ApplyMigrations();
         app.Run();

@@ -1,4 +1,4 @@
-﻿namespace UserService.Domain.Enums;
+﻿namespace DreamGetter.Shared.Enums;
 
 public enum Role
 {

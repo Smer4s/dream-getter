@@ -1,12 +1,13 @@
 ﻿using Bogus;
 using DreamGetter.Shared.Abstractions.Seeds;
+using DreamGetter.Shared.Enums;
 using Microsoft.EntityFrameworkCore;
+using UserService.Domain.Abstractions.Services;
 using UserService.Domain.Entities;
-using UserService.Domain.Enums;
 
 namespace UserService.Infrastructure.Database.Seeders;
 
-internal class UserSeeder(AppDbContext dbContext)
+internal class UserSeeder(AppDbContext dbContext, IPasswordHasher passwordHasher)
     : Seeder<User>(dbContext), ISeeder<User>
 {
     public override async Task SeedAsync()
@@ -26,6 +27,7 @@ internal class UserSeeder(AppDbContext dbContext)
                 u.Email = f.Random.Bool(0.75f) ? f.Internet.Email(firstName: u.Name, lastName: f.Name.LastName()) : null;
                 u.PhoneNumber = f.Phone.PhoneNumber("+###(##)###-##-##");
                 u.Role = f.Random.Bool(0.1f) ? Role.Admin : Role.Default;
+                u.Password = passwordHasher.HashPassword("string");
             });
 
         await AddEntitiesAsync(faker, delta);

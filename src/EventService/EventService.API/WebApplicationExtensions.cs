@@ -2,6 +2,7 @@
 using DreamGetter.Shared.Utils;
 using EventService.API.Endpoints._Meeting_;
 using EventService.API.Endpoints._MeetingType_;
+using EventService.Domain.Abstractions.Services;
 using EventService.Infrastructure.Database;
 
 namespace EventService.API;
@@ -13,7 +14,11 @@ internal static class WebApplicationExtensions
         app.AddMeetingEndpoints();
         app.AddMeetingTypeEndpoints();
     }
-
+    public static void AddAuth(this WebApplication app)
+    {
+        app.UseAuthentication();
+        app.UseAuthorization();
+    }
     public static async Task ApplyMigrations(this WebApplication app)
     {
         using var scope = app.Services.CreateScope();

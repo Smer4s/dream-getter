@@ -26,7 +26,14 @@ namespace UserService.Infrastructure.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("JwtRefresh")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -43,6 +50,36 @@ namespace UserService.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("User", (string)null);
+                });
+
+            modelBuilder.Entity("UserUser", b =>
+                {
+                    b.Property<Guid>("SubscribedOnId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("SubscribersId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("SubscribedOnId", "SubscribersId");
+
+                    b.HasIndex("SubscribersId");
+
+                    b.ToTable("UserUser");
+                });
+
+            modelBuilder.Entity("UserUser", b =>
+                {
+                    b.HasOne("UserService.Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("SubscribedOnId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("UserService.Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("SubscribersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

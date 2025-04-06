@@ -24,7 +24,7 @@ public abstract class RepositoryBase<T>(DbContext dbContext)
         WithIncludes().ToListAsync();
 
     public Task<T?> GetById(Guid entityId) =>
-        _dbContext.Set<T>().FirstOrDefaultAsync(x => x.Id == entityId);
+        WithIncludes().FirstOrDefaultAsync(x => x.Id == entityId);
 
     protected virtual IQueryable<T> WithIncludes()
     {

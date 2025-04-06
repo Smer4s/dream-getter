@@ -1,5 +1,4 @@
 ﻿using UserService.Domain.Abstractions.Services;
-using UserService.Domain.Injections;
 using UserService.Domain.Models;
 
 namespace UserService.Domain.Services._Auth_;

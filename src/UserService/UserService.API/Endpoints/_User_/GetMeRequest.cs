@@ -1,6 +1,7 @@
 ﻿
+using DreamGetter.Shared.Authentication;
+using DreamGetter.Shared.Utils;
 using Microsoft.AspNetCore.Authorization;
-using System.Security.Claims;
 using UserService.Domain.Abstractions.Services;
 using UserService.Domain.Entities;
 
@@ -8,18 +9,14 @@ namespace UserService.API.Endpoints._User_;
 
 internal class GetMeRequest
 {
-    [Authorize]
+    [Authorize(Policy = AuthPolicyConstants.DefaultPolicyName)]
     internal static Task<User> Request(IUserService userService, HttpContext httpContext)
     {
-        var userIdString = httpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimsIdentity.DefaultNameClaimType)?.Value;
-
-        if (userIdString == null)
+        if (!httpContext.User.TryGetUserId(out var userId))
         {
-            throw new ArgumentNullException(nameof(userIdString));
+            throw new ArgumentNullException(nameof(userId));
         }
 
-        var userId = Guid.Parse(userIdString);
-
-        return userService.GetUserById(userId)!;
+        return userService.GetUserById(userId!.Value)!;
     }
 }

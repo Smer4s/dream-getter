@@ -11,10 +11,8 @@ public class Program
 
         builder.Services
             .AddInfrastructure()
-            .AddDomain();
-
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
+            .AddDomain()
+            .AddWebApi();
 
         var app = builder.Build();
 

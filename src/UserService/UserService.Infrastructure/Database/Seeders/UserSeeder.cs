@@ -1,9 +1,9 @@
 ﻿using Bogus;
 using DreamGetter.Shared.Abstractions.Seeds;
+using DreamGetter.Shared.Enums;
 using Microsoft.EntityFrameworkCore;
 using UserService.Domain.Abstractions.Services;
 using UserService.Domain.Entities;
-using UserService.Domain.Enums;
 
 namespace UserService.Infrastructure.Database.Seeders;
 

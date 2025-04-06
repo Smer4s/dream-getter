@@ -13,5 +13,8 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder.HasIndex(x => x.PhoneNumber)
             .IsUnique(true);
+
+        builder.HasMany(x => x.Subscribers)
+            .WithMany(x => x.SubscribedOn);
     }
 }

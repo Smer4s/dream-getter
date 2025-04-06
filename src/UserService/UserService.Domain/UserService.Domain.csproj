@@ -17,4 +17,8 @@
     <ProjectReference Include="..\..\DreamGetter.Shared\DreamGetter.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Injections\" />
+  </ItemGroup>
+
 </Project>

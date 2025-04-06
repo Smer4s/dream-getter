@@ -1,16 +1,14 @@
 ﻿using DreamGetter.Shared.WebInjections;
-using Mapster;
 
-namespace UserService.API;
+namespace EventService.API;
 
-public static class DependencyInjection
+internal static class DependencyInjection
 {
     public static IServiceCollection AddWebApi(this IServiceCollection services)
     {
         services.AddDreamGetterSwagger();
-        services.AddMapster();
-
 
         return services;
     }
 }
+

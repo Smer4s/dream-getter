@@ -1,6 +1,8 @@
 ﻿
+using DreamGetter.Shared.Authentication;
 using EventService.Domain.Abstractions.Services;
 using EventService.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EventService.API.Endpoints._Meeting_;
 
@@ -14,6 +16,7 @@ internal record CreateMeetingModel
 
 internal class CreateMeetingRequest
 {
+    [Authorize(Policy = AuthPolicyConstants.DefaultPolicyName)]
     public static async Task Request(CreateMeetingModel model, IMeetingService meetingService, IMeetingTypeService meetingTypeService)
     {
         var meetingType = await meetingTypeService.GetMeetingTypeById(model.TypeId);

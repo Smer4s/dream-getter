@@ -1,59 +1,52 @@
-﻿using Bogus;
+﻿using DreamGetter.Shared.Authentication;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 using UserService.Domain.Abstractions.Services;
 using UserService.Domain.Entities;
-using UserService.Domain.Injections;
 using UserService.Domain.Models;
 
-namespace UserService.Domain.Services._Auth_
+namespace UserService.Domain.Services._Auth_;
+
+internal class TokenService(AuthInjections authInjections) : ITokenService
 {
-    internal class TokenService(AuthInjections authInjections) : ITokenService
+    public JwtTokenModel GenerateTokens(User user)
     {
-        public JwtTokenModel GenerateTokens(User user)
-        {
-            var identity = GetIdentity(user);
+        var identity = GetIdentity(user);
 
-            var accessToken = GenerateAccessToken(identity);
+        var accessToken = GenerateAccessToken(identity);
 
-            return new JwtTokenModel { AccessToken = accessToken };
-        }
+        return new JwtTokenModel { AccessToken = accessToken };
+    }
 
-        private string GenerateAccessToken(ClaimsIdentity identity)
-        {
-            var jwt = new JwtSecurityToken(
-                    issuer: authInjections.Issuer,
-                    audience: authInjections.Audience,
-                    notBefore: DateTime.UtcNow,
-                    claims: identity.Claims,
-                    expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(authInjections.AccessTokenLifeTimeMinutes)),
-                    signingCredentials: new SigningCredentials(authInjections.SymmetricSecurityKey, SecurityAlgorithms.HmacSha256));
+    private string GenerateAccessToken(ClaimsIdentity identity)
+    {
+        var jwt = new JwtSecurityToken(
+                issuer: authInjections.Issuer,
+                audience: authInjections.Audience,
+                notBefore: DateTime.UtcNow,
+                claims: identity.Claims,
+                expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(authInjections.AccessTokenLifeTimeMinutes)),
+                signingCredentials: new SigningCredentials(authInjections.SymmetricSecurityKey, SecurityAlgorithms.HmacSha256));
 
-            var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
+        var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
 
-            return encodedJwt;
-        }
+        return encodedJwt;
+    }
 
-        private ClaimsIdentity GetIdentity(User user)
-        {
-            List<Claim> claims =
-                [
-                    new Claim(ClaimsIdentity.DefaultNameClaimType, user.Id.ToString()),
-                    new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role.ToString())
-                ];
+    private ClaimsIdentity GetIdentity(User user)
+    {
+        List<Claim> claims =
+            [
+                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Id.ToString()),
+                new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role.ToString())
+            ];
 
-            var claimsIdentity = new ClaimsIdentity(
-                claims: claims,
-                authenticationType: "Token",
-                nameType: ClaimsIdentity.DefaultNameClaimType,
-                roleType: ClaimsIdentity.DefaultRoleClaimType);
-            return claimsIdentity;
-        }
+        var claimsIdentity = new ClaimsIdentity(
+            claims: claims,
+            authenticationType: "Token",
+            nameType: ClaimsIdentity.DefaultNameClaimType,
+            roleType: ClaimsIdentity.DefaultRoleClaimType);
+        return claimsIdentity;
     }
 }

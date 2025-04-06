@@ -7,6 +7,7 @@ internal static class UserEndpointsInjector
 
         usersGroup.MapGet("/list", GetUsersRequest.Request);
         usersGroup.MapGet("/me", GetMeRequest.Request);
+        usersGroup.MapPost("/subscribe", SubscribeToUserRequest.Request);
         usersGroup.MapGet("/{userId:guid}", GetUserRequest.Request);
         usersGroup.MapPost("/", CreateUserRequest.Request);
         usersGroup.MapPut("/", UpdateUserRequest.Request);
